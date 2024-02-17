@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>YSA</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+        .login-button{
+            transition: background-color 0.3s ease;
+            color: black;
+    font-family: Arial, sans-serif; 
+
+        }
+         .signup-button {
+            position: relative;
+            background-color: rgb(246,221,100);
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            color: black;
+    font-family: Arial, sans-serif; 
+                
+               }
+
+        .signup-button:hover {
+            background-color:rgb(255, 255, 144);
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            justify-content: center;
+            color: black;
+            background: white;
+            z-index: 9999;
+            border-bottom: 1px solid green;
+            border-color: rgb(39, 39, 39);
+            
+        }
+        .header ul {
+            position: relative;
+            top: -7px;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            float: right;
+        }
+
+        .header li {
+            margin-right: 20px;
+        }
+        .feature-img {
+            position: relative;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            top: -70px;
+        }
+
+        .feature-img .large {
+            position: relative;
+            top: -80px;
+            width: 100%;
+            display: block;
+            vertical-align: middle;
+            height: auto;
+        }
+
+        .feature-img .overlay {
+            position: absolute;
+            top: -300px;
+            left: 7%;
+            right: 50%;
+            width: 1000px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 80px;
+            letter-spacing: -2px;
+            line-height: 90px;
+            word-spacing: 2px;
+        }
+
+        .whatis {
+            position: relative;
+            top: 200px;
+            left: 3%;
+            width: 700px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 55px;
+            letter-spacing: -2px;
+            line-height: 90px;
+            word-spacing: 2px;
+        }
+
+        .get-started-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(246,221,100);
+            color: black;
+            padding: 13px 45px;
+            font-size: 20px;
+            font-weight: bold;
+            border-color: black;
+            text-decoration: none;
+            border-radius: 33px;
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .logo {
+            position: relative;
+            
+            left: -567px;
+            width: 90px;
+            padding: 0px;
+        }
+
+        .run {
+            position: relative;
+            top: -300px;
+        }
+
+        .whatsis {
+            position: relative;
+            float: right;
+            top: -8000px;
+            color: black;
+        }
+
+        /* Added CSS for sticky header */
+        .sticky {
+            position: fixed;
+            top: 0;
+            opacity: 1;
+        }
+.left{
+    border-radius: 100%;
+    height: 90px;
+    width: 90px;
+    color: white;
+    background-color: rgb(255, 255, 255);
+}
+        .white-bg {
+            position: absolute;
+            width: 100%;
+            height: 2100px;
+            top: 700px;
+            left: 0;
+            background: rgb(255, 255, 255);
+            z-index: 0;
+        }
+        .beige {
+            position: absolute;
+            width: 50%;
+            height: 570px;
+            top: 1300px;
+            left: 70px;
+            background: rgb(245, 245, 245);
+            z-index: 0;
+        }
+        .slideshow {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 200px;
+        }
+
+        .rectangle {
+            width: 200px;
+            height: 500px;
+            background-color: gray;
+        }
+
+        .image-container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .fade{
+background: black;
+        }
+
+        .image.fade-out {
+            opacity: 0;
+        }
+
+        .image.fade-in {
+            opacity: 1;
+        }
+    
+        .black{
+            position: absolute;
+            left: 25%;
+            top: 30.5%;
+            height: 210px;
+            width: 150px;
+            background-color: black;
+            border-radius: 10px;
+
+        }
+        .black1{
+            position: absolute;
+            left: 50.5%;
+            top: 53%;
+            height: 210px;
+            width: 150px;
+            background-color: black;
+            border-radius: 10px;
+
+        }
+        .black2{
+            position: absolute;
+            left: 50.5%;
+            top: 10.5%;
+            height: 210px;
+            width: 150px;
+            background-color: black;
+            border-radius: 10px;
+
+        }
+        .pic{ position: relative;
+            top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+            max-width: 80%;
+            border-radius: 10px;
+        }
+        .shop{
+            width: 70px;
+            border-radius: 2px;
+            height: 20px;
+            text-align: center;
+            background-color: rgb(246,221,100);
+            color: black;
+            position: relative;
+            top: 85%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 13px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: bold;
+        }
+        .writing{
+            position: relative;
+            font-size: 50px;
+            top: 80px;
+            left: 860px;
+            color: black;
+            
+        }
+        .black.fade-out,
+.black1.fade-out,
+.black2.fade-out {
+    opacity: 0;
+    pointer-events: none; /* This will prevent clicks on faded containers */
+    transition: opacity 0.5s ease-in-out;
+}
+a {
+    text-decoration: none; /* Remove underline from all anchor tags */
+}
+.faq {
+    position: relative;
+    top: 820px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    color: black;
+}
+.question-text{
+    font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 23px;
+}
+.question {
+
+    cursor: pointer;
+    border-bottom: 1px solid rgb(226, 226, 226);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.question-text {
+    flex-grow: 1;
+}
+.answer {
+    position: relative;
+    padding-bottom: 180px;
+    display: none;
+    padding-bottom: 0px;
+    background-color: #fff;
+    font-family: Arial, sans-serif; 
+    
+}
+.question.active {
+    position: relative;
+  border-bottom: 1px solid #000; /* Add your preferred line styles here */
+  padding-bottom: 10px; /* Adjust as needed for spacing */
+  display: flex;
+}
+.tab{
+    color: black;
+    position: relative;
+    left: -70px;
+    font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 55px;
+            letter-spacing: -2px;
+            line-height: 90px;
+            word-spacing: 2px;
+}
+.tabdes{
+    font-size: 27px;
+    color: black;
+    position: relative;
+    left: -70px;
+}
+.arrow{
+    width: 50px;
+    position: relative;
+    left: -80px;
+    padding-left: 10px;
+    cursor: pointer;
+        }
+       
+        .faded {
+            opacity: 0.3;
+        }
+        
+.red-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    display: none; /* Initially hide the red box */
+
+}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <ul>
+                <li class="logo"><a href="index.html"><img class ="logo" src="images/Screenshot 2023-09-10 at 4.34.19 PM.png" alt=""></a></li>
+                <li><a href="login" class="login-button">Login</a></li>
+                <li><a href="signup" class="signup-button">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="white-bg"></div>
+    <div class="beige">
+
+        <container class="fade">
+            <div class="red-box"></div>
+
+            <div class="black">
+                <div class="shop">
+                    <p>Shop Now</p>
+                </div>
+                <div class="pic">
+                    <img class="pic" src="images/accent.jpeg" alt="">
+                </div>
+            </div>
+            <div class="black1">
+                <div class="shop">
+                    <p>Shop Now</p>
+                </div>
+                <div class="pic">
+                    <img class="pic" src="images/accent.jpeg" alt="">
+                </div>
+            </div>
+             <div class="black2">
+                <div class="shop">
+                    <p>Shop Now</p>
+                </div>
+                <div class="pic">
+                    <img class="pic" src="images/accent.jpeg" alt="">
+                </div>
+            </div>
+
+            <div class="writing">
+                <p class="tab">Browse Collection</p>
+                <p class="tabdes">Discover unique listings from your campus</p>
+               
+                <img id="leftArrow" class = "arrow" src="images/left.png" alt="Left Arrow" onclick="moveAndFade('left')">  
+                <img id="rightArrow" class = "arrow" src="images/right.png" alt="Right Arrow" onclick="moveAndFade('right')">  
+              
+
+
+
+            </div>
+
+
+            </div>
+        </container>
+        
+    </div>
+    
+    <div class="feature-img">
+        <img class="large" src="images/one.jpeg">
+        <div class="overlay">
+            <p>Creer un lieu de confort</p>
+        </div>
+        <div class="run">
+            <p class="whatis">What is ThrO?</p>
+        </div>
+
+     
+      
+        
+    </div>
+
+
+    <div class="faq">
+        <!-- FAQ Questions and Answers -->
+        <div class="qa-pair">
+            <div class="question">
+                <div class="question-text">Q: What is Lorem Ipsum?</div>
+                <div class="arrow"><img class="arrow" src="images/arrow.png" alt=""></div>
+            </div>
+            <div class="answer">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+        </div>
+    
+       
+        <div class="qa-pair">
+            <div class="question">
+                
+                <div class="question-text">Q: Where does it come from?</div>
+                <div class="arrow"><img class="arrow" src="images/arrow.png" alt=""></div>
+            </div>
+            <div class="answer">
+                <p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+            </div>
+        </div>
+    </div>
+    <a class="get-started-button" href="#">Get Started</a>
+    
+    <script>
+        // JavaScript to toggle the answer when clicking on the question
+        const questionContainers = document.querySelectorAll('.qa-pair');
+    
+        questionContainers.forEach((container) => {
+            const question = container.querySelector('.question');
+            const answer = container.querySelector('.answer');
+    
+            question.addEventListener('click', () => {
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                    question.classList.remove('active');
+                } else {
+                    questionContainers.forEach((otherContainer) => {
+                        const otherAnswer = otherContainer.querySelector('.answer');
+                        otherAnswer.style.display = 'none';
+                        otherContainer.querySelector('.question').classList.remove('active');
+                    });
+    
+                    answer.style.display = 'block';
+                    question.classList.add('active');
+                }
+            });
+        });
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            const featureImg = document.querySelector('.feature-img');
+            const scrollPosition = window.scrollY;
+
+            if (scrollPosition > 0) {
+                header.classList.add('sticky');
+                featureImg.style.marginTop = `${header.offsetHeight}px`;
+            } else {
+                header.classList.remove('sticky');
+                featureImg.style.marginTop = '80px'; // Adjust this value as needed
+            }
+        });
+       
+
+
+
+
+
+
+       
+        
+    const items = ["Item 1", "Item 2", "Item 3", "Item 4"];
+    let currentIndex = 0;
+    let fadingOut = false;
+
+    function updateArrows() {
+        const leftArrow = document.getElementById('leftArrow');
+        const rightArrow = document.getElementById('rightArrow');
+
+        leftArrow.classList.remove('bold');
+        leftArrow.classList.remove('faded');
+        rightArrow.classList.remove('bold');
+        rightArrow.classList.remove('faded');
+
+        if (currentIndex === 0) {
+            leftArrow.classList.add('faded');
+        } else if (currentIndex === items.length - 1) {
+            rightArrow.classList.add('faded');
+        } else {
+            leftArrow.classList.add('bold');
+            rightArrow.classList.add('bold');
+        }
+    }
+
+    function moveAndFade(direction) {
+        if (fadingOut) return; // Prevent moving and fading while animations are in progress
+
+        if (direction === 'left' && currentIndex > 0) {
+            currentIndex--;
+        } else if (direction === 'right' && currentIndex < items.length - 1) {
+            currentIndex++;
+        }
+
+        updateArrows();
+        fadeOutAllContainers();
+    }
+
+    function fadeOutAllContainers(reverse = false) {
+        const containers = document.querySelectorAll('.black, .black1, .black2');
+        let delay = 0;
+
+        fadingOut = true; // Set the flag to indicate fading out is in progress
+
+        if (reverse) {
+            for (let i = containers.length - 1; i >= 0; i--) {
+                setTimeout(() => {
+                    containers[i].classList.add('fade-out');
+                    // Show the red box when the last container fades out
+                    if (i === containers.length - 1) {
+                        showRedBox();
+                    }
+                    // After fading out the last container, fade in all containers
+                    if (i === 0) {
+                        setTimeout(() => {
+                            containers.forEach((container) => {
+                                container.classList.remove('fade-out');
+                            });
+                            fadingOut = false; // Reset the flag after fading in
+                        }, 500); // Adjust this time as needed for the red box to be visible
+                    }
+                }, delay);
+                delay += 300; // Increase the delay for reverse fading
+            }
+        } else {
+            for (let i = 0; i < containers.length; i++) {
+                setTimeout(() => {
+                    containers[i].classList.add('fade-out');
+                    // Show the red box when the last container fades out
+                    if (i === containers.length - 1) {
+                        showRedBox();
+                    }
+                    // After fading out the last container, fade in all containers
+                    if (i === containers.length - 1) {
+                        setTimeout(() => {
+                            containers.forEach((container) => {
+                                container.classList.remove('fade-out');
+                            });
+                            fadingOut = false; // Reset the flag after fading in
+                        }, 500); // Adjust this time as needed for the red box to be visible
+                    }
+                }, delay);
+                delay += 300; // Increase the delay for fading
+            }
+        }
+    }
+
+    function showRedBox() {
+    const redBox = document.querySelector('.red-box');
+    redBox.style.display = 'block';
+}
+
+    updateArrows();
+
+
+    </script>
+</body>
+</html>
+
+
+

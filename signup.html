@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Slider with Fade Effect</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .slider-container {
+            display: inline-block;
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        .slider {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .arrow {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .faded {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <div class="slider" id="colorSlider"></div>
+    </div>
+    <div class="arrow bold" id="leftArrow" onclick="move('left')">&lt;</div>
+    <div class="arrow faded" id="rightArrow" onclick="move('right')">&gt;</div>
+
+    <script>
+        const colors = ['red', 'blue', 'purple', 'yellow', 'green'];
+        let currentIndex = 0;
+
+        const slider = document.getElementById('colorSlider');
+        const leftArrow = document.getElementById('leftArrow');
+        const rightArrow = document.getElementById('rightArrow');
+
+        function updateArrows() {
+            leftArrow.classList.remove('bold', 'faded');
+            rightArrow.classList.remove('bold', 'faded');
+
+            if (currentIndex === 0) {
+                leftArrow.classList.add('faded');
+            } else if (currentIndex === colors.length - 1) {
+                rightArrow.classList.add('faded');
+            } else {
+                leftArrow.classList.add('bold');
+                rightArrow.classList.add('bold');
+            }
+        }
+
+        function move(direction) {
+            if (direction === 'left' && currentIndex > 0) {
+                currentIndex--;
+            } else if (direction === 'right' && currentIndex < colors.length - 1) {
+                currentIndex++;
+            }
+
+            slider.style.opacity = 0; // Start fade-out
+            setTimeout(() => {
+                slider.style.backgroundColor = colors[currentIndex];
+                slider.style.opacity = 1; // Start fade-in
+            }, 500); // Wait for fade-out to complete (0.5s)
+
+            updateArrows();
+        }
+
+        // Initialize with the first color
+        slider.style.backgroundColor = colors[currentIndex];
+        updateArrows();
+    </script>
+</body>
+</html>
